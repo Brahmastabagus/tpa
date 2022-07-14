@@ -1,0 +1,150 @@
+@media screen and (max-width: 412px) {
+    .desktopnav{
+        display: none !important;
+    }
+
+    .mobilenav{
+        display: block !important;
+    }
+
+    /* GLOBAL */
+    h1{
+        font-size: 30px !important;
+    }
+
+    p{
+        font-size: 12px !important;
+        line-height: 26px !important;
+    }
+
+    a{
+        font-size: 15px !important;
+    }
+
+    /* TENTANG */
+    h4{
+        font-size: 17px !important;
+    }
+
+    .tentang .cardz{    
+        margin-bottom: 40px;
+    }
+
+    /* MITRA */
+    .mitra .text-center{
+        margin-bottom: 40px;
+    }
+
+    /* SEJARAH */
+
+    .sejarah{
+        text-align: center;
+        padding-top: 70px;
+        padding-bottom: 70px;
+    }
+    .sejarah .content {
+        padding-bottom: 30px;
+        padding-right: 30px;
+        padding-left: 30px;
+    }
+
+    .sejarah img{
+        border-radius: 25px;
+    }
+
+    .sejarah .rowSejarah{
+        justify-content: center;
+    }
+
+    /* VISI MISI */
+    .visimisi .content{
+        text-align: center;
+        margin-left: 0;
+        margin-top: 50px;
+    }
+
+    .visimisi .content p{
+        padding-right: 0px;
+    }
+
+    .rowVisi{
+        justify-content: center;
+
+    }
+
+    .rowVisi2{
+        flex-direction: column-reverse;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .visimisi .content2 p{
+        padding-right: 0;
+    }
+
+    .visimisi .content2{
+        margin-top: 30px;
+        padding-left: 0;
+    }
+
+    /* PENGHARGAAN */
+    .penghargaan .cardz{
+        margin-bottom: 40px;
+    }
+
+    .penghargaan .rowPenghargaan{
+        justify-content: center;
+    }
+
+    /* PRODUK */
+    .produk h5{
+        font-size: 17px;
+    }
+
+    .produk .cardzBody{
+        align-items: flex-start;
+    }
+
+    /* BERITA */
+    .berita .rowBerita{
+        justify-content: center;
+    }
+
+    .berita .cardz{
+        margin-bottom: 40px;
+    }
+
+    .berita .cardzBody h4{
+        line-height: 30px;
+    }
+
+    /* TESTIMONI */
+    .testimoni .rowTestimoni{
+        justify-content: center;
+    }
+
+    .testimoni .cardz{
+        margin-bottom: 40px;
+    }
+
+    .testimoni .profilWrapper h5{
+        font-size: 16px;
+    }
+
+    /* FOOTER */
+    footer ul {
+        padding-left: 0px;
+    }
+
+    footer{
+        text-align: center;
+    }
+
+
+footer .cpr{
+    color: var(--white);
+    font-size: 16px;
+    margin-bottom: 50px;
+}
+
+}
