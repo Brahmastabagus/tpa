@@ -505,21 +505,13 @@
                         <li>
                             <h5>Sosial Media</h5>
                         </li>
+                        <?php
+                            $results = mysqli_query($dbcon,"SELECT * FROM `t_sosial-media`");
+                            foreach ($results as $result) : ?>
                         <li>
-                            <a>Instagram</a>
+                            <a href="<?= $result["link"]; ?>"><?= $result["nama"]; ?></a>
                         </li>
-                        <li>
-                            <a>Twitter</a>
-                        </li>
-                        <li>
-                            <a>Facebook</a>
-                        </li>
-                        <li>
-                            <a>Whatsapp</a>
-                        </li>
-                        <li>
-                            <a>Linkedin</a>
-                        </li>
+                        <?php endforeach; ?>
                     </ul>
                 </div>
             </div>
