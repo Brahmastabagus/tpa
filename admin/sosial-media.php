@@ -191,6 +191,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                     <td>
                                                         <div class="btn-group btn-group-sm">
                                                             <a href="sosial-media_edit_ui.php?id_sosial_media=<?php echo $result['id_sosial_media'] ?>" class="btn btn-warning me-2"><i class="fas fa-edit"></i></a>
+                                                            <a onclick="return confirm('Anda Yakin?')" href="action_delete_sosial-media.php?id_sosial_media=<?php echo $result['id_sosial_media'] ?>" class="btn btn-danger"><i class="fas fa-trash"></i></a>
                                                         </div>
                                                     </td>
                                                 </tr>
