@@ -189,7 +189,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                           <td><?= $no++ ?></td>
                           <td><?= $result['nama'] ?></td>
                           <td><?= $result['deskripsi'] ?></td>
-                          <td><img style="max-height:70px !important;" src="<?= $result['gambar'] ?>" alt=""></td>
+                          <td><img style="max-height:70px !important;" src="../assets/<?= $result['gambar'] ?>" alt=""></td>
                           <td>
                             <div class="btn-group btn-group-sm">
                               <a href="produk_edit_ui.php?id_produk=<?php echo $result['id_produk'] ?>" class="btn btn-warning"><i class="fas fa-edit"></i></a>

@@ -258,71 +258,48 @@ header .videoWrapper h2 {
 /* PRODUK */
 
 .produk {
-    background: var(--primary);
-    padding-top: 100px;
-    padding-bottom: 100px;
-}
-
-.produk .accordion-item {
-    margin-bottom: 10px;
-    border: none !important;
+    padding: 100px 0;
+    background-color: var(--primary);
 }
 
 .produk h1 {
-    margin-bottom: 70px;
     color: var(--white);
+    text-align: center;
 }
 
-.produk .cardz {
-    background: white;
-    padding: 25px 25px;
-    border-radius: 4px;
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
+.produk .accordion {
+    /* margin-top: 70px; */
+    font-size: 16px;
 }
 
-.produk .cardz h5 {
-    font-weight: 600;
+.produk .accordion .accordion-body img {
+    width: 110px;
+    height: 200;
 }
 
-.produk .check {
-    margin-right: 20px;
+.produk .accordion .accordion-body p {
+    color: var(--black);
+    text-align: justify;
 }
 
-.produk .cardzBody img {
-    margin-right: 30px;
+.accordion-button::before {
+    content: "";
+    width: 22px;
+    height: 12px;
+    background-size: cover;
+    background-image: url("../assets/iconCheck.svg");
+    margin-right: 10px;
 }
 
-.produk .cardzBody {
-    padding: 25px;
-    background: var(--white);
-    border-bottom-right-radius: 4px;
-    border-bottom-left-radius: 4px;
+.accordion-button::after {
+    background-image: url("../assets/svgPlus.svg");
+    width: 30px;
+    height: 30px;
+    background-size: cover;
 }
 
-.produk .cardzBody p {
-    line-height: 35px;
-}
-
-.produk .action {
-    cursor: pointer;
-}
-
-.produk .action #min,
-.produk .action #min2,
-.produk .action #min3,
-.produk .action #min4,
-.produk .action #min5 {
-    display: none;
-}
-
-.produk .displayToggle {
-    transition: all 2s linear;
-    display: none;
-}
-
-.produk .content2 {
-    margin-bottom: 10px;
+.accordion-button:not(.collapsed)::after {
+    background-image: url("../assets/svgMin.svg");
 }
 
 /* BERITA */

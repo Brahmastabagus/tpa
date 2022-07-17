@@ -1,14 +1,17 @@
 <?php
 include("connect.php");
-$sql_delete="delete from t_berita where id_berita='$_GET[id_berita]'";
+$sql_delete="DELETE FROM t_berita WHERE id_berita='$_GET[id_berita]'";
 
 $result=mysqli_query($dbcon,$sql_delete);
 
-if ($result) {
-	header("location:berita.php");
-}else{
-	header("location:berita.php?hal=berita&pesan=gagal_hapus");
-	echo mysqli_error();
-	echo "$sql_delete";
+if (mysqli_affected_rows($dbcon) == 1) {
+	echo "<script>
+            alert('Berhasil dihapus');
+            document.location.href = 'berita.php';
+        </script>";
+} else {
+	echo "<script>
+            alert('Gagal dihapus');
+            document.location.href = 'berita.php';
+        </script>";
 }
-?>

@@ -1,14 +1,17 @@
 <?php
 include("connect.php");
-$sql_delete="delete from t_penghargaan where id_penghargaan='$_GET[id_penghargaan]'";
+$sql_delete="DELETE FROM t_penghargaan WHERE id_penghargaan='$_GET[id_penghargaan]'";
 
 $result=mysqli_query($dbcon,$sql_delete);
 
-if ($result) {
-	header("location:penghargaan.php");
-}else{
-	header("location:penghargaan.php?hal=penghargaan&pesan=gagal_hapus");
-	echo mysqli_error();
-	echo "$sql_delete";
+if (mysqli_affected_rows($dbcon) == 1) {
+	echo "<script>
+            alert('Berhasil dihapus');
+            document.location.href = 'penghargaan.php';
+        </script>";
+} else {
+	echo "<script>
+            alert('Gagal dihapus');
+            document.location.href = 'penghargaan.php';
+        </script>";
 }
-?>

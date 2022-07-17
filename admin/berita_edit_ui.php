@@ -172,7 +172,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 $result = mysqli_query($dbcon, "select * from t_berita where id_berita = '$_GET[id_berita]'");
                 $result = mysqli_fetch_array($result);
                 ?>
-                <form action="action_edit_berita.php" method="POST">
+                <form action="action_edit_berita.php" method="POST" enctype="multipart/form-data">
                   <div class="card-body">
                     <div class="form-group">
                       <label>Kategori</label>
@@ -191,13 +191,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
                       <textarea class="form-control" rows="3" id="isi" name="isi"><?= $result['isi']; ?></textarea>
                     </div>
                     <div class="form-group">
-                      <label>Gambar Berita</label>
-                      <input type="username" class="form-control" id="gambar_berita" name="gambar_berita" value="<?= $result['gambar_berita']; ?>">
+                      <label class=" d-block" for="customFile">Gambar</label>
+                      <img src="../assets/<?= $result['gambar_berita']; ?>" alt="" title="">
+                      <div class="custom-file mt-4">
+                        <input type="file" class="custom-file-input" id="customFile" name="gambar_berita">
+                        <label class="custom-file-label" for="customFile">Choose file</label>
+                      </div>
                     </div>
                   </div>
                   <!-- /.card-body -->
                   <div class="card-footer">
                     <input type="hidden" name="id_berita" value="<?php echo $result['id_berita']; ?>">
+                    <input type="hidden" name="gambarLama" value="<?= $result["gambar_berita"]; ?>">
                     <button type="submit" class="btn btn-primary">Ubah</button>
                   </div>
                   <!-- /.card footer -->
@@ -245,6 +250,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
   <!-- AdminLTE App -->
   <script src="dist/js/adminlte.min.js"></script>
+  <script src="plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+  <script>
+    $(function() {
+      bsCustomFileInput.init();
+    });
+  </script>
 </body>
 
 </html>

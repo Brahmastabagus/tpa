@@ -176,20 +176,20 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <th>No</th>
                         <th>Tahun</th>
                         <th>Judul</th>
-                        <th>Evidence</th>
+                        <th>Gambar</th>
                         <th>Action</th>
                       </tr>
                     </thead>
                     <tbody>
                       <?php
-                      $result = mysqli_query($dbcon, "select * from t_penghargaan");
+                      $result = mysqli_query($dbcon, "SELECT * FROM t_penghargaan");
                       $no = 1;
                       foreach ($result as $result) { ?>
                         <tr>
                           <td><?= $no++ ?></td>
                           <td><?= $result['tahun'] ?></td>
                           <td><?= $result['judul'] ?></td>
-                          <td><img style="max-height:70px !important;" src="<?= $result['gambar'] ?>" alt=""></td>
+                          <td><img style="max-height:70px !important;" src="../assets/<?= $result['gambar'] ?>" alt=""></td>
                           <td>
                             <div class="btn-group btn-group-sm">
                               <a href="penghargaan_edit_ui.php?id_penghargaan=<?php echo $result['id_penghargaan'] ?>" class="btn btn-warning"><i class="fas fa-edit"></i></a>
@@ -204,7 +204,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <th>No</th>
                         <th>Tahun</th>
                         <th>Judul</th>
-                        <th>Evidence</th>
+                        <th>Gambar</th>
                         <th>Action</th>
                       </tr>
                     </tfoot>

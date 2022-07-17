@@ -168,7 +168,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </div>
                 <!-- /.form-header -->
                 <!-- form start -->
-                <form action="action_add_testimoni.php" method="POST">
+                <form action="action_add_testimoni.php" method="POST" enctype="multipart/form-data">
                   <div class="card-body">
                     <div class="form-group">
                       <label>Narasumber</label>
@@ -194,7 +194,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </div>
                     <div class="form-group">
                       <label>Gambar Narasumber</label>
-                      <input type="username" class="form-control" id="narasumber_foto" name="narasumber_foto" placeholder="Masukkan link drive narasumber">
+                      <!-- <input type="username" class="form-control" id="narasumber_foto" name="narasumber_foto" placeholder="Masukkan link drive narasumber"> -->
+                      <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="customFile" name="narasumber_foto">
+                        <label class="custom-file-label" for="customFile">Choose file</label>
+                      </div>
                     </div>
 
                   </div>
@@ -247,6 +251,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
   <!-- AdminLTE App -->
   <script src="dist/js/adminlte.min.js"></script>
+  <script src="plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+  <script>
+    $(function() {
+      bsCustomFileInput.init();
+    });
+  </script>
 </body>
 
 </html>
