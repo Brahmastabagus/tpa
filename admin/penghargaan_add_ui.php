@@ -168,7 +168,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </div>
               <!-- /.form-header -->
               <!-- form start -->
-              <form action="action_add_penghargaan.php" method="POST">
+              <form action="action_add_penghargaan.php" method="POST" enctype="multipart/form-data">
                 <div class="card-body">
                   <div class="form-group">
                     <label>Judul</label>
@@ -178,13 +178,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <label>Tahun</label>
                     <input type="date" class="form-control" id="tahun" name="tahun">
                   </div>
-                  <!-- <div class="form-group">
-                                <label>Deskripsi</label>
-                                <textarea class="form-control" id="deskripsi" name="deskripsi" placeholder="Masukan deskripsi perolehan penghargaan"></textarea>
-                            </div> -->
                   <div class="form-group">
-                    <label>Evidence</label>
-                    <input type="username" class="form-control" id="gambar" name="gambar" placeholder="Masukan link drive sertifikat penghargaan">
+                    <label>Gambar</label>
+                    <div class="custom-file">
+                      <input type="file" class="custom-file-input" id="customFile" name="gambar">
+                      <label class="custom-file-label" for="customFile">Choose file</label>
+                    </div>
                   </div>
                 </div>
                 <!-- /.card-body -->
@@ -236,6 +235,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
   <!-- AdminLTE App -->
   <script src="dist/js/adminlte.min.js"></script>
+
+  <script src="plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+  <script>
+    $(function() {
+      bsCustomFileInput.init();
+    });
+  </script>
 
   <!-- script manual -->
   <script>

@@ -172,7 +172,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               $result = mysqli_query($dbcon, "select * from t_testimoni where id_testimoni = '$_GET[id_testimoni]'");
               $result = mysqli_fetch_array($result);
               ?>
-              <form action="action_edit_testimoni.php" method="POST">
+              <form action="action_edit_testimoni.php" method="POST" enctype="multipart/form-data">
                 <div class="card-body">
                   <div class="form-group">
                     <label>Narasumber</label>
@@ -197,14 +197,21 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </select>
                   </div>
                   <div class="form-group">
-                    <label>Gambar Narasumber</label>
-                    <input type="username" class="form-control" id="narasumber_foto" name="narasumber_foto" value="<?= $result['narasumber_foto'] ?>">
+                    <!-- <label>Gambar Narasumber</label>
+                    <input type="username" class="form-control" id="narasumber_foto" name="narasumber_foto" value="<?= $result['narasumber_foto'] ?>"> -->
+                    <label class="d-block">Gambar Narasumber</label>
+                    <img src="../assets/<?= $result["narasumber_foto"]; ?>" alt="img">
+                    <div class="custom-file mt-4">
+                      <input type="file" class="custom-file-input" id="customFile" name="narasumber_foto">
+                      <label class="custom-file-label" for="customFile">Choose file</label>
+                    </div>
                   </div>
                 </div>
                 <!-- /.card-body -->
 
                 <div class="card-footer">
                   <input type="hidden" id="id_testimoni" name="id_testimoni" value="<?php echo $result['id_testimoni']; ?>">
+                  <input type="hidden" name="gambarLama" value="<?= $result["narasumber_foto"]; ?>">
                   <button type="submit" class="btn btn-primary">Ubah</button>
                 </div>
                 <!-- /.card-footer -->
@@ -251,6 +258,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
   <!-- AdminLTE App -->
   <script src="dist/js/adminlte.min.js"></script>
+  <script src="plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+  <script>
+    $(function() {
+      bsCustomFileInput.init();
+    });
+  </script>
 </body>
 
 </html>

@@ -174,9 +174,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <thead>
                       <tr>
                         <th>No</th>
+                        <th>Avatar</th>
                         <th>Rating</th>
-                        <th>Testimoni</th>
                         <th>Narasumber</th>
+                        <th>Testimoni</th>
                         <th>Aksi</th>
                       </tr>
                     </thead>
@@ -187,6 +188,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                       foreach ($result as $result) { ?>
                         <tr>
                           <td><?= $no++ ?></td>
+                          <td>
+                            <img src="../assets/<?= $result["narasumber_foto"]; ?>" alt=""></td>
                           <td>
                             <?php
                             if ($result['rating'] == 5) {
@@ -234,9 +237,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <tfoot>
                       <tr>
                         <th>No</th>
+                        <th>Avatar</th>
                         <th>Rating</th>
-                        <th>Testimoni</th>
                         <th>Narasumber</th>
+                        <th>Testimoni</th>
                         <th>Aksi</th>
                       </tr>
                     </tfoot>

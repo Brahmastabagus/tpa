@@ -5,15 +5,18 @@ $nama = $_POST['nama'];
 $email = $_POST['email'];
 $password = $_POST['password']; 
 
-$sql_add="insert into t_admin (nama, email, password) values ('$nama', '$email', '$password')";
+$sql_add="INSERT INTO t_admin (nama, email, password) VALUES ('$nama', '$email', '$password')";
 
 $result=mysqli_query($dbcon,$sql_add);
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-	header("location:admin.php");
-}else{
-	header("location:admin.php?hal=admin&pesan=gagal_tambah");
-	echo mysqli_error();
-	echo "$sql_tambah";
+if (mysqli_affected_rows($dbcon) == 1) {
+	echo "<script>
+            alert('Berhasil ditambahkan');
+            document.location.href = 'admin.php';
+        </script>";
+} else {
+	echo "<script>
+            alert('Gagal ditambahkan');
+            document.location.href = 'admin.php';
+        </script>";
 }
-?>

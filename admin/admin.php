@@ -181,7 +181,7 @@ if (!isset($_SESSION['islogin'])) {
                     <tbody>
                       <?php
                       include 'connect.php';
-                      $result = mysqli_query($dbcon, "select * from t_admin");
+                      $result = mysqli_query($dbcon, "SELECT * FROM t_admin");
                       $no = 1;
                       foreach ($result as $result) { ?>
                         <tr>

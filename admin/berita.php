@@ -183,7 +183,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </thead>
                     <tbody>
                       <?php
-                      $result = mysqli_query($dbcon, "select * from t_berita order by tgl desc");
+                      $result = mysqli_query($dbcon, "SELECT * FROM t_berita ORDER BY tgl DESC");
                       $no = 1;
                       foreach ($result as $result) { ?>
                         <tr>
@@ -191,7 +191,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                           <td><?= $result['tgl'] ?></td>
                           <td><?= $result['kategori'] ?></td>
                           <td><?= $result['judul'] ?></td>
-                          <td><img style="max-height:70px !important;" src="<?= $result['gambar_berita'] ?>" alt=""></td>
+                          <td><img style="max-height:70px !important;" src="../assets/<?= $result['gambar_berita'] ?>" alt=""></td>
                           <td>
                             <div class="btn-group btn-group-sm">
                               <a href="berita_edit_ui.php?id_berita=<?php echo $result['id_berita'] ?>" class="btn btn-warning"><i class="fas fa-edit"></i></a>
