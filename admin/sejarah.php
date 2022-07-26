@@ -180,24 +180,21 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         </thead>
                                         <tbody>
                                             <?php
-                                            $i = 1;
                                             $result = mysqli_query($dbcon, "select * from t_content");
-                                            foreach ($result as $results) { ?>
+                                            $no = 1;
+                                            foreach ($result as $result) { ?>
                                                 <tr>
-                                                    <td><?= $i; ?></td>
-                                                    <td><?= $results['Judul'] ?></td>
-                                                    <td><?= $results['Deskripsi'] ?></td>
-                                                    <td style="max-width: 400px"><?= $results['Gambar'] ?></td>
+                                                    <td><?= $no++ ?></td>
+                                                    <td><?= $result['Judul'] ?></td>
+                                                    <td><?= $result['Deskripsi'] ?></td>
+                                                    <td style="max-width: 400px"><?= $result['Gambar'] ?></td>
                                                     <td>
                                                         <div class="btn-group btn-group-sm">
                                                             <a href="sejarah_edit_ui.php?id_sejarah=1" class="btn btn-warning me-2"><i class="fas fa-edit"></i></a>
                                                         </div>
                                                     </td>
                                                 </tr>
-                                                <?php 
-                                                $i++;
-                                            } 
-                                            ?>
+                                                <?php } ?>
                                         </tbody>
                                         <tfoot>
                                             <tr>

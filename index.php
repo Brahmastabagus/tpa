@@ -76,8 +76,8 @@ include "admin/connect.php";
                 <div class="col">
                 <?php
                 $header_result = mysqli_query($dbcon, "SELECT * FROM t_header limit 1 ");
-               $header = mysqli_fetch_array($header_result);
-               ?>
+                $header = mysqli_fetch_array($header_result);
+                ?>
                     <div class="content">
                         <div class="text-center">
                             <h1> <?php echo $header['judul']?> </h1>

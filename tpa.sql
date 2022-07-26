@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 26, 2022 at 03:17 PM
+-- Generation Time: Jul 26, 2022 at 05:01 PM
 -- Server version: 10.4.21-MariaDB
--- PHP Version: 8.0.11
+-- PHP Version: 8.0.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -88,6 +88,26 @@ INSERT INTO `t_content` (`Nomor`, `Judul`, `Deskripsi`, `Gambar`) VALUES
 (1, 'Sejarah PT. Tirta Purbaligga Adijaya', 'PT. Tirta Purbalingga Adijaya (TPA) adalah perusahaan swasta yang bergerak dalam produksi Air Mineral Dalam Kemasan (AMDK). Didirikan pada 19 Agustus 1994 di Kutasari, Purbalingga Jawa Tengah. Bahan baku proses pembuatan AMDK PT. Tirta Purbalingga Adijaya KPB Purbalingga berasal dari mata air yang terletak di Dusun Walik, Desa Kutasari, Kecamatan Kutasari, Kabupaten Purbalingga. TPA memiliki luas tanah 16.130 m dan luas bangunan 6.286 m', '62db66a29ecf9.png'),
 (2, 'Visi PT. Tirta Purbalingga Adijaya', 'Menjadi perusahaan terkemuka dalam memenuhi mineral pelanggan dengan mengutamakan kualitas dan kebersihan sampai ke tangan pelanggan sesuai dengan kebutuhan masyarakat.', 'imgMisi1.png'),
 (3, 'Misi PT. Tirta Purbalingga Adijaya ', 'Untuk menghasilkan produk berkualitas dengan harga yang kompetitif memenuhi spesifikasi produk yang ketat dan persyaratan kualitas pelanggan dalam waktu pengiriman sesingkat mungkin. Menjadi pemimpin terdepan dalam teknologi produksi dan inovasi yang mencapai kepemimpinan pasar dengan nama merek yang bereputasi dan diakui secara internasional dalam industri dengan pertumbuhan tinggi. Untuk mengembangkan lini produksi di tempat pelanggan untuk periode kontrak jangka panjang untuk melayani pelanggan dengan lebih baik dalam hal pengurangan waktu pengiriman, kualitas setinggi mungkin dan menghilangkan kebutuhan pelanggan untuk mempertahankan persediaan yang tinggi. (Dalam konsep tanaman).', 'imgMisi2.png');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `t_header`
+--
+
+CREATE TABLE `t_header` (
+  `id_header` int(11) NOT NULL,
+  `judul` varchar(225) NOT NULL,
+  `keterangan` varchar(225) NOT NULL,
+  `vidio` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `t_header`
+--
+
+INSERT INTO `t_header` (`id_header`, `judul`, `keterangan`, `vidio`) VALUES
+(1, 'The Good Beverage Company PT. Sinar sosro', 'Sempurnakan harimu dengan ceria dan bahagia bersama Prim-A dari PT Sinar Sosro Air mineral pilihan dari sumber mata air pilihan.', 'https://www.youtube.com/embed/lbj8YbpFa1M');
 
 -- --------------------------------------------------------
 
@@ -178,10 +198,10 @@ CREATE TABLE `t_testimoni` (
 --
 
 INSERT INTO `t_testimoni` (`id_testimoni`, `rating`, `testimoni`, `narasumber`, `narasumber_profesi`, `narasumber_foto`) VALUES
-(2, 5, 'Kemasan cup inovatif, praktis digunakan saat acara seperti resepsi ', 'Muaya', 'Event Organizer', '62d3974dd13c0.png'),
-(3, 2, 'Rasanya asin berdebu bau tanah dan terdapat minyak aneh', 'Duru', 'Mahasiswa', '62d3984f7c7ea.png'),
-(4, 1, 'Plastik gampang melepuh jika terkena sinar matahari, plastik jadi slime', 'Darda', 'Pro Gamers', '62d398581ee0a.png'),
-(6, 1, 'Harganya murah, tapi kualitasnya sesuai harga minuman kelas rendahan', 'Kehian', 'Carry Masyarakat', '62d39839bf5f8.png');
+(2, 5, 'Kemasan cup inovatif, praktis digunakan saat acara seperti resepsi ', 'Muaya', 'Event Organizer', '62df4b873ac37.png'),
+(3, 3, 'Good Rasanya Enak dan Segar', 'Duru', 'Mahasiswa', '62d3984f7c7ea.png'),
+(4, 4, 'Plastik mudah di daur ulang, Dapat banyak inspiratif', 'Darda', 'Pro Gamers', '62d398581ee0a.png'),
+(6, 5, 'Harganya murah, tapi kualitasnya tidak murahan', 'Kehian', 'Carry Masyarakat', '62d39839bf5f8.png');
 
 --
 -- Indexes for dumped tables
@@ -204,6 +224,12 @@ ALTER TABLE `t_berita`
 --
 ALTER TABLE `t_content`
   ADD PRIMARY KEY (`Nomor`);
+
+--
+-- Indexes for table `t_header`
+--
+ALTER TABLE `t_header`
+  ADD PRIMARY KEY (`id_header`);
 
 --
 -- Indexes for table `t_penghargaan`
@@ -244,12 +270,6 @@ ALTER TABLE `t_admin`
 --
 ALTER TABLE `t_berita`
   MODIFY `id_berita` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
---
--- AUTO_INCREMENT for table `t_content`
---
-ALTER TABLE `t_content`
-  MODIFY `Nomor` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `t_penghargaan`
