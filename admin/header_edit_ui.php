@@ -73,6 +73,22 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
             <li class="nav-item">
+              <a href="header.php" class="nav-link">
+                <i class="nav-icon fas fa-heading"></i>
+                <p>
+                  Header
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="sejarah.php" class="nav-link">
+                <i class="nav-icon fas fa-book-open"></i>
+                <p>
+                  Konten
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
               <a href="produk.php" class="nav-link">
                 <i class="nav-icon fas fa-dolly-flatbed"></i>
                 <p>
@@ -120,15 +136,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </p>
               </a>
             </li>
-            </p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="header.php" class="nav-link active">
-              <i class="fas fa-heading"></i>
-                <p>
-                  header
-
             <li class="nav-item">
               <a href="logout.php" class="nav-link">
                 <i class="nav-icon fas fa-sign-out-alt"></i>
@@ -137,8 +144,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </p>
               </a>
             </li>
-
-
           </ul>
         </nav>
         <!-- /.sidebar-menu -->
@@ -183,7 +188,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 $result = mysqli_query($dbcon, "select * from t_header where id_header = '$_GET[id_header]'");
                 $result = mysqli_fetch_array($result);
                 ?>
-                <form action="action_edit_header.php?id_header=<?= $result['id_header'] ?> "method="POST" enctype="multipart/form-data">
+                <form action="action_edit_header.php?id_header=<?= $result['id_header'] ?> " method="POST" enctype="multipart/form-data">
                   <div class="card-body">
                     <div class="form-group">
                       <label>judul</label>
@@ -197,48 +202,48 @@ scratch. This page gets rid of all links and provides the needed markup only.
                       <label>vidio</label>
                       <input type="text" class="form-control" id="vidio" name="vidio" value="<?= $result['vidio']; ?>">
                     </div>
-                    </div>
                   </div>
-
-                  <!-- /.card-body -->
-                  <div class="card-footer">
-                    <input type="hidden" name="id_header" value="<?php echo $result['id_header']; ?>">
-                    <button type="submit" class="btn btn-primary">Ubah</button>
-                  </div>
-                  <!-- /.card footer -->
-                </form>
               </div>
-              <!-- /.form -->
+
+              <!-- /.card-body -->
+              <div class="card-footer">
+                <input type="hidden" name="id_header" value="<?php echo $result['id_header']; ?>">
+                <button type="submit" class="btn btn-primary">Ubah</button>
+              </div>
+              <!-- /.card footer -->
+              </form>
             </div>
-            <!-- /.col -->
+            <!-- /.form -->
           </div>
-          <!-- /.row -->
+          <!-- /.col -->
         </div>
-        <!-- /.container-fluid -->
-      </section>
-      <!-- /.content -->
+        <!-- /.row -->
     </div>
-    <!-- /.content-wrapper -->
+    <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
 
-    <!-- Control Sidebar -->
-    <aside class="control-sidebar control-sidebar-dark">
-      <!-- Control sidebar content goes here -->
-      <div class="p-3">
-        <h5>Title</h5>
-        <p>Sidebar content</p>
-      </div>
-    </aside>
-    <!-- /.control-sidebar -->
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+    <div class="p-3">
+      <h5>Title</h5>
+      <p>Sidebar content</p>
+    </div>
+  </aside>
+  <!-- /.control-sidebar -->
 
-    <!-- Main Footer -->
-    <footer class="main-footer">
-      <!-- To the right -->
-      <div class="float-right d-none d-sm-inline">
-        Anything you want
-      </div>
-      <!-- Default to the left -->
-      <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
-    </footer>
+  <!-- Main Footer -->
+  <footer class="main-footer">
+    <!-- To the right -->
+    <div class="float-right d-none d-sm-inline">
+      Anything you want
+    </div>
+    <!-- Default to the left -->
+    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+  </footer>
   </div>
   <!-- ./wrapper -->
 

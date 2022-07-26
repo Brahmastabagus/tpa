@@ -73,6 +73,22 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
             <li class="nav-item">
+              <a href="header.php" class="nav-link">
+                <i class="nav-icon fas fa-heading"></i>
+                <p>
+                  Header
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="sejarah.php" class="nav-link">
+                <i class="nav-icon fas fa-book-open"></i>
+                <p>
+                  Konten
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
               <a href="produk.php" class="nav-link active">
                 <i class="nav-icon fas fa-dolly-flatbed"></i>
                 <p>

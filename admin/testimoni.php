@@ -72,8 +72,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
             <li class="nav-item">
+              <a href="header.php" class="nav-link">
+                <i class="nav-icon fas fa-heading"></i>
+                <p>
+                  Header
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
               <a href="sejarah.php" class="nav-link">
-                <i class="fas fa-monument"></i>
+                <i class="nav-icon fas fa-book-open"></i>
                 <p>
                   Konten
                 </p>
@@ -124,15 +132,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <i class="nav-icon fas fa-user-tie"></i>
                 <p>
                   Admin
-                </p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="header.php" class="nav-link">
-              <i class="fas fa-heading"></i>
-                <p>
-                  header
-
                 </p>
               </a>
             </li>
@@ -205,7 +204,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <tr>
                           <td><?= $no++ ?></td>
                           <td>
-                            <img src="../assets/<?= $result["narasumber_foto"]; ?>" alt=""></td>
+                            <img src="../assets/<?= $result["narasumber_foto"]; ?>" alt="">
+                          </td>
                           <td>
                             <?php
                             if ($result['rating'] == 5) {

@@ -72,6 +72,22 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
             <li class="nav-item">
+              <a href="header.php" class="nav-link">
+                <i class="nav-icon fas fa-heading"></i>
+                <p>
+                  Header
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="sejarah.php" class="nav-link">
+                <i class="nav-icon fas fa-book-open"></i>
+                <p>
+                  Konten
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
               <a href="produk.php" class="nav-link">
                 <i class="nav-icon fas fa-dolly-flatbed"></i>
                 <p>
@@ -179,10 +195,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <input type="username" class="form-control" id="Judul" name="Judul" value="<?= $result['Judul']; ?>">
                   </div>
                   <div class="form-group">
-                                <label >Deskripsi</label>
-                                <textarea class="form-control" rows="3" id="Deskripsi" name="Deskripsi"><?= $result['Deskripsi']; ?>
+                    <label>Deskripsi</label>
+                    <textarea class="form-control" rows="3" id="Deskripsi" name="Deskripsi"><?= $result['Deskripsi']; ?>
                                 </textarea>
-                            </div>
+                  </div>
                   <div class="form-group">
                     <label class="d-block">Gambar</label>
                     <img src="../assets/<?= $result["Gambar"]; ?>" alt="img">
