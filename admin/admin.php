@@ -203,18 +203,6 @@ if (!isset($_SESSION['islogin'])) {
                           <td><?= $no++ ?></td>
                           <td><?= $result['nama'] ?></td>
                           <td><?= $result['email'] ?></td>
-                          <!-- <td>
-                        <a class="btn btn-warning btn-sm" href="admin_edit_ui.php?id_admin=<?php echo $result['id_admin'] ?>">
-                              <i class="fas fa-pencil-alt">
-                              </i>
-                              Edit
-                        </a>
-                        <a onclick="return confirm('Anda Yakin?')" class="btn btn-danger btn-sm" href="action_delete_admin.php?id_admin=<?php echo $result['id_admin'] ?>">
-                              <i class="fas fa-trash">
-                              </i>
-                              Delete
-                        </a>
-                    </td> -->
                         </tr>
                       <?php } ?>
                     </tbody>
