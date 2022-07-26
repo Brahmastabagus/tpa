@@ -80,7 +80,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </a>
             </li>
             <li class="nav-item">
-              <a href="sejarah.php" class="nav-link">
+              <a href="sejarah.php" class="nav-link active">
                 <i class="nav-icon fas fa-book-open"></i>
                 <p>
                   Konten
@@ -104,7 +104,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </a>
             </li>
             <li class="nav-item">
-              <a href="penghargaan.php" class="nav-link active">
+              <a href="penghargaan.php" class="nav-link">
                 <i class="nav-icon fas fa-trophy"></i>
                 <p>
                   Penghargaan
@@ -196,8 +196,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   </div>
                   <div class="form-group">
                     <label>Deskripsi</label>
-                    <textarea class="form-control" rows="3" id="Deskripsi" name="Deskripsi"><?= $result['Deskripsi']; ?>
-                                </textarea>
+                    <textarea class="form-control" rows="10" id="Deskripsi" name="Deskripsi">
+                      <?= $result['Deskripsi']; ?>
+                    </textarea>
                   </div>
                   <div class="form-group">
                     <label class="d-block">Gambar</label>

@@ -73,7 +73,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
             <li class="nav-item">
-              <a href="header.php" class="nav-link">
+              <a href="header.php" class="nav-link active">
                 <i class="nav-icon fas fa-heading"></i>
                 <p>
                   Header
@@ -97,7 +97,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </a>
             </li>
             <li class="nav-item">
-              <a href="berita.php" class="nav-link active">
+              <a href="berita.php" class="nav-link">
                 <i class="nav-icon fas fa-newspaper"></i>
                 <p>
                   Berita
@@ -136,6 +136,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </p>
               </a>
             </li>
+            </li>
             <li class="nav-item">
               <a href="logout.php" class="nav-link">
                 <i class="nav-icon fas fa-sign-out-alt"></i>
@@ -143,7 +144,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   Logout
                 </p>
               </a>
-            </li>
           </ul>
         </nav>
         <!-- /.sidebar-menu -->
@@ -182,6 +182,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <div class="card-header">
                   <h3 class="card-title">Form Ubah Header</h3>
                 </div>
+              </div>
                 <!-- /.form-header -->
                 <!-- form start -->
                 <?php
@@ -191,38 +192,37 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <form action="action_edit_header.php?id_header=<?= $result['id_header'] ?> " method="POST" enctype="multipart/form-data">
                   <div class="card-body">
                     <div class="form-group">
-                      <label>judul</label>
+                      <label>Judul</label>
                       <input type="username" class="form-control" id="judul" name="judul" value="<?= $result['judul']; ?>">
                     </div>
                     <div class="form-group">
-                      <label>keterangan</label>
+                      <label>Keterangan</label>
                       <textarea class="form-control" rows="3" id="keterangan" name="keterangan"><?= $result['keterangan']; ?></textarea>
                     </div>
                     <div class="form-group">
-                      <label>vidio</label>
+                      <label>Video</label>
                       <input type="text" class="form-control" id="vidio" name="vidio" value="<?= $result['vidio']; ?>">
                     </div>
                   </div>
-              </div>
 
-              <!-- /.card-body -->
-              <div class="card-footer">
-                <input type="hidden" name="id_header" value="<?php echo $result['id_header']; ?>">
-                <button type="submit" class="btn btn-primary">Ubah</button>
-              </div>
-              <!-- /.card footer -->
-              </form>
+                  <!-- /.card-body -->
+                  <div class="card-footer">
+                    <input type="hidden" name="id_header" value="<?php echo $result['id_header']; ?>">
+                    <button type="submit" class="btn btn-primary">Ubah</button>
+                  </div>
+                  <!-- /.card footer -->
+                </form>
             </div>
             <!-- /.form -->
           </div>
           <!-- /.col -->
         </div>
         <!-- /.row -->
+      </section>
     </div>
     <!-- /.container-fluid -->
-    </section>
     <!-- /.content -->
-  </div>
+  <!-- </div> -->
   <!-- /.content-wrapper -->
 
   <!-- Control Sidebar -->
