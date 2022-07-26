@@ -169,14 +169,17 @@ include "admin/connect.php";
             <div class="row rowSejarah">
                 <div class="col-lg-6">
                     <div class="content">
-                        <h1>Sejarah PT. Tirta
-                            Purbalingga Adijaya </h1>
-                        <p>PT. Tirta Purbalingga Adijaya (TPA) adalah perusahaan swasta yang bergerak dalam produksi Air Mineral Dalam Kemasan (AMDK). TPA didirikan pada 19 Agustus 2006 di Kutasari, Purbalingga Jawa Tengah. Berawal dari perusahaan air mineral yang memiliki kualitas memenuhi standar, kini TPA bisa berkembang dan menjadi pemasok air di Indonesia. Kepuasan pelanggan adalah prioritas Kami. Penjagaan mutu adalah motto Kami.
+                    <?php
+                    $result = mysqli_query($dbcon, "SELECT * FROM t_content WHERE Judul = 'Sejarah PT. Tirta Purbaligga Adijaya'");
+                    foreach ($result as $result) { ?>
+                        <h1><?= $result['Judul'] ?></h1>
+                        <p><?= $result['Deskripsi'] ?>
                         </p>
                     </div>
                 </div>
                 <div class="col-11 col-lg-6" style="padding-right: 0;">
-                    <img width="100%" class="img-fluid" src="./assets/imgSejarah.png" alt="">
+                    <img class="img-fluid" src="./assets/<?= $result['Gambar'] ?>" alt="">
+                    <?php } ?>
                 </div>
             </div>
         </div>
@@ -188,28 +191,32 @@ include "admin/connect.php";
         <div class="container">
             <div class="row align-items-center rowVisi">
                 <div class="col-lg-6">
-                    <img class="img-fluid" src="./assets/imgMisi1.png" alt="">
+                    <?php
+                    $result = mysqli_query($dbcon, "SELECT * FROM t_content WHERE Judul = 'Visi PT. Tirta Purbalingga Adijaya'");
+                    foreach ($result as $result) { ?>
+                <img class="img-fluid" src="./assets/<?= $result['Gambar'] ?>" alt="">
                 </div>
                 <div class="col-lg-6 col-11">
                     <div class="content">
-                        <h1>Visi PT. Tirta <br>
-                            Purbalingga Adijaya</h1>
-                        <p>Menjadi perusahaan terkemuka dalam memenuhi mineral pelanggan dengan mengutamakan kualitas dan kebersihan sampai ke tangan pelanggan sesuai dengan kebutuhan masyarakat.</p>
+                        <h1><?= $result['Judul'] ?></h1>
+                        <p><?= $result['Deskripsi'] ?></p>
                     </div>
+                    <?php } ?>
                 </div>
             </div>
             <div class="row align-items-center rowVisi2">
                 <div class="col-lg-6 col-11">
                     <div class="content2">
-                        <h1>Misi PT. Tirta <br>
-                            Purbalingga Adijaya</h1>
-                        <p>1. Untuk menghasilkan produk berkualitas dengan harga yang kompetitif memenuhi spesifikasi produk yang ketat dan persyaratan kualitas pelanggan dalam waktu pengiriman sesingkat mungkin.</p>
-                        <p>2. Menjadi pemimpin terdepan dalam teknologi produksi dan inovasi yang mencapai kepemimpinan pasar dengan nama merek yang bereputasi dan diakui secara internasional dalam industri dengan pertumbuhan tinggi.</p>
-                        <p>3. Untuk mengembangkan lini produksi di tempat pelanggan untuk periode kontrak jangka panjang untuk melayani pelanggan dengan lebih baik dalam hal pengurangan waktu pengiriman, kualitas setinggi mungkin dan menghilangkan kebutuhan pelanggan untuk mempertahankan persediaan yang tinggi. (Dalam konsep tanaman).</p>
+                    <?php
+                    $result = mysqli_query($dbcon, "SELECT * FROM t_content WHERE Judul = 'Misi PT. Tirta Purbalingga Adijaya'");
+                    foreach ($result as $result) { ?>
+                        <h1><?= $result['Judul'] ?></h1>
+                        <p><?= $result['Deskripsi'] ?></p>
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <img class="img-fluid" src="./assets/imgMisi2.png" alt="">
+                    <img class="img-fluid" src="./assets/<?= $result['Gambar'] ?>" alt="">
+                    <?php } ?>
                 </div>
             </div>
         </div>

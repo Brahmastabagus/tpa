@@ -72,7 +72,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
                         <li class="nav-item">
-                            <a href="sejarah.php" class="nav-link">
+                            <a href="sejarah.php" class="nav-link active">
                                 <i class="fas fa-monument"></i>
                                 <p>
                                     Konten
@@ -112,7 +112,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="sosial-media.php" class="nav-link active">
+                            <a href="sosial-media.php" class="nav-link">
                                 <i class="nav-icon fas fa-hashtag"></i>
                                 <p>
                                     Sosial Media
@@ -149,12 +149,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Data Sosial Media</h1>
+                            <h1 class="m-0">Data Sejarah</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Sosial Media</li>
+                                <li class="breadcrumb-item active">Konten</li>
                             </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
@@ -167,56 +167,47 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-12">
-                            <div class="card">
-                                <div class="card-header">
-                                    <a href="sosial-media_add_ui.php">
-                                        <button type="button" class="btn btn-primary"><i class="fa fa-add"></i>
-                                            Tambah
-                                        </button>
-                                    </a>
-                                </div>
-                                <!-- /.card-header -->
-                                <div class="card-body">
-                                    <table id="example1" class="table table-bordered table-striped">
+                            <div>
+                            <table id="example1" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
-                                                <th>No</th>
-                                                <th>Nama</th>
-                                                <th>Link</th>
+                                                <th>No.</th>
+                                                <th>Judul</th>
+                                                <th>Deskripsi</th>
+                                                <th>Gambar</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php
-                                            $results = mysqli_query($dbcon, "select * from `t_sosial-media`");
-                                            $no = 1;
-                                            foreach ($results as $result) : ?>
+                                            $i = 1;
+                                            $result = mysqli_query($dbcon, "select * from t_content");
+                                            foreach ($result as $results) { ?>
                                                 <tr>
-                                                    <td><?= $no++ ?></td>
-                                                    <td><?= $result['nama'] ?></td>
-                                                    <td><?= $result['link'] ?></td>
+                                                    <td><?= $i; ?></td>
+                                                    <td><?= $results['Judul'] ?></td>
+                                                    <td><?= $results['Deskripsi'] ?></td>
+                                                    <td style="max-width: 400px"><?= $results['Gambar'] ?></td>
                                                     <td>
                                                         <div class="btn-group btn-group-sm">
-                                                            <a href="sosial-media_edit_ui.php?id_sosial_media=<?php echo $result['id_sosial_media'] ?>" class="btn btn-warning me-2"><i class="fas fa-edit"></i></a>
-                                                            <a onclick="return confirm('Anda Yakin?')" href="action_delete_sosial-media.php?id_sosial_media=<?php echo $result['id_sosial_media'] ?>" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                                                            <a href="sejarah_edit_ui.php?id_sejarah=1" class="btn btn-warning me-2"><i class="fas fa-edit"></i></a>
                                                         </div>
                                                     </td>
                                                 </tr>
-                                            <?php endforeach; ?>
+                                                <?php 
+                                                $i++;
+                                            } 
+                                            ?>
                                         </tbody>
                                         <tfoot>
                                             <tr>
-                                                <th>No</th>
-                                                <th>Nama</th>
-                                                <th>Link</th>
+                                                <th>No.</th>
+                                                <th>Judul</th>
+                                                <th>Deskripsi</th>
                                                 <th>Action</th>
                                             </tr>
                                         </tfoot>
-                                    </table>
-                                </div>
-                                <!-- /.card-body -->
-                            </div>
-                            <!-- /.card -->
+                                    </table>               
                         </div>
                         <!-- /.col -->
                     </div>

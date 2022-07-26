@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 17, 2022 at 07:58 AM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 8.1.1
+-- Generation Time: Jul 26, 2022 at 03:17 PM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 8.0.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -66,6 +66,28 @@ INSERT INTO `t_berita` (`id_berita`, `tgl`, `kategori`, `judul`, `isi`, `gambar_
 (1, '2022-07-17 03:14:28', 'Event', 'Mengumpulkan botol 300ml dan tukar dengan uang', 'Dapatkan kesempatan berlibur ke Bali dengan menukarkan 3 botol air mineral PrimA ke toko terdekat', '62d37e940c068.png'),
 (5, '2022-07-17 03:08:38', 'Pengumuman', 'Mengumpulkan botol 600ml dan tukar dengan uang', 'Dapatkan kesempatan uang 1 juta dengan menukarkan 3 botol air mineral PrimA ke toko terdekat', '62d37d36bba7b.png'),
 (10, '2022-07-17 03:06:31', 'Loker', 'Dicari Karyawan untuk pemantau gudang perusahaan', 'Persyaratan Pendaftaran : Laki-laki / Perempuan , Minimal lulusan S1 dan memiliki komitmen yang tinggi', '62d37cb734547.png');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `t_content`
+--
+
+CREATE TABLE `t_content` (
+  `Nomor` int(5) NOT NULL,
+  `Judul` varchar(255) NOT NULL,
+  `Deskripsi` text NOT NULL,
+  `Gambar` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `t_content`
+--
+
+INSERT INTO `t_content` (`Nomor`, `Judul`, `Deskripsi`, `Gambar`) VALUES
+(1, 'Sejarah PT. Tirta Purbaligga Adijaya', 'PT. Tirta Purbalingga Adijaya (TPA) adalah perusahaan swasta yang bergerak dalam produksi Air Mineral Dalam Kemasan (AMDK). Didirikan pada 19 Agustus 1994 di Kutasari, Purbalingga Jawa Tengah. Bahan baku proses pembuatan AMDK PT. Tirta Purbalingga Adijaya KPB Purbalingga berasal dari mata air yang terletak di Dusun Walik, Desa Kutasari, Kecamatan Kutasari, Kabupaten Purbalingga. TPA memiliki luas tanah 16.130 m dan luas bangunan 6.286 m', '62db66a29ecf9.png'),
+(2, 'Visi PT. Tirta Purbalingga Adijaya', 'Menjadi perusahaan terkemuka dalam memenuhi mineral pelanggan dengan mengutamakan kualitas dan kebersihan sampai ke tangan pelanggan sesuai dengan kebutuhan masyarakat.', 'imgMisi1.png'),
+(3, 'Misi PT. Tirta Purbalingga Adijaya ', 'Untuk menghasilkan produk berkualitas dengan harga yang kompetitif memenuhi spesifikasi produk yang ketat dan persyaratan kualitas pelanggan dalam waktu pengiriman sesingkat mungkin. Menjadi pemimpin terdepan dalam teknologi produksi dan inovasi yang mencapai kepemimpinan pasar dengan nama merek yang bereputasi dan diakui secara internasional dalam industri dengan pertumbuhan tinggi. Untuk mengembangkan lini produksi di tempat pelanggan untuk periode kontrak jangka panjang untuk melayani pelanggan dengan lebih baik dalam hal pengurangan waktu pengiriman, kualitas setinggi mungkin dan menghilangkan kebutuhan pelanggan untuk mempertahankan persediaan yang tinggi. (Dalam konsep tanaman).', 'imgMisi2.png');
 
 -- --------------------------------------------------------
 
@@ -178,6 +200,12 @@ ALTER TABLE `t_berita`
   ADD PRIMARY KEY (`id_berita`);
 
 --
+-- Indexes for table `t_content`
+--
+ALTER TABLE `t_content`
+  ADD PRIMARY KEY (`Nomor`);
+
+--
 -- Indexes for table `t_penghargaan`
 --
 ALTER TABLE `t_penghargaan`
@@ -216,6 +244,12 @@ ALTER TABLE `t_admin`
 --
 ALTER TABLE `t_berita`
   MODIFY `id_berita` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `t_content`
+--
+ALTER TABLE `t_content`
+  MODIFY `Nomor` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `t_penghargaan`
