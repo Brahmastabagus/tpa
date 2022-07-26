@@ -233,11 +233,11 @@ include "admin/connect.php";
                     <div class="col-lg-4 col-10">
                         <div class="cardz">
                             <div class="cardzHead">
-                                <img class="rounded" src="./assets/<?= $result["gambar"]; ?>" alt="">
+                                <img style="border-radius:25px;height:260px;width:100%;" src="./assets/<?= $result["gambar"]; ?>" alt="">
                             </div>
                             <div class="cardzBody">
                                 <p>Menerima Tahun <?= date('Y', strtotime($result['tahun'])) ?></p>
-                                <h4><?= $result['judul'] ?></h4>
+                                <h4>  <?= $result['judul'] ?></h4>
                                 <!-- <a href="#">Lanjutkan Membaca</a> -->
                             </div>
                         </div>
@@ -314,7 +314,7 @@ include "admin/connect.php";
                     <div class="col-lg-4 col-10">
                         <div class="cardz">
                             <div class="cardzHead">
-                                <img class="rounded" src="./assets/<?= $result["gambar_berita"]; ?>" alt="">
+                                <img style="border-radius:25px;height:260px;width:100%;" src="./assets/<?= $result["gambar_berita"]; ?>" alt="">
                             </div>
                             <div class="cardzBody">
                                 <?php
