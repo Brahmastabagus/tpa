@@ -5,7 +5,6 @@ if (!isset($_SESSION['islogin'])) {
   header('location:index.php');
 }
 ?>
-
 <!DOCTYPE html>
 <!--
 This is a starter template page. Use this page to start your new project from
@@ -56,7 +55,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex" method="POST">
           <?php
-          $sql_nama = mysqli_query($dbcon, "select nama from t_admin where id_admin = '$_SESSION[id_admin]'");
+          $sql_nama = mysqli_query($dbcon, "select nama from t_admin where id_admin = '$_SESSION[islogin]'");
           $result = mysqli_fetch_array($sql_nama);
           ?>
           <div class="image">
@@ -70,15 +69,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- Sidebar Menu -->
         <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
-            <li class="nav-item">
-              <a href="sejarah.php" class="nav-link">
-                <i class="fas fa-monument"></i>
-                <p>
-                  Konten
-                </p>
-              </a>
-            </li>
+            <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
             <li class="nav-item">
               <a href="produk.php" class="nav-link">
                 <i class="nav-icon fas fa-dolly-flatbed"></i>
@@ -88,16 +80,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </a>
             </li>
             <li class="nav-item">
-              <a href="berita.php" class="nav-link active">
+              <a href="berita.php" class="nav-link">
                 <i class="nav-icon fas fa-newspaper"></i>
                 <p>
                   Berita
                 </p>
               </a>
-
             </li>
             <li class="nav-item">
-              <a href="penghargaan.php" class="nav-link">
+              <a href="penghargaan.php" class="nav-link active">
                 <i class="nav-icon fas fa-trophy"></i>
                 <p>
                   Penghargaan
@@ -129,14 +120,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </a>
             </li>
             <li class="nav-item">
-              <a href="header.php" class="nav-link">
-              <i class="fas fa-heading"></i>
-                <p>
-                  header
-                </p>
-              </a>
-            </li>
-            <li class="nav-item">
               <a href="logout.php" class="nav-link">
                 <i class="nav-icon fas fa-sign-out-alt"></i>
                 <p>
@@ -158,12 +141,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1 class="m-0">Berita</h1>
+              <h1 class="m-0">Ubah Data Sejarah</h1>
             </div><!-- /.col -->
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item active">Berita</li>
+                <li class="breadcrumb-item"><a href="sejarah.php">Sejarah</a></li>
+                <li class="breadcrumb-item active">Edit Sejarah</li>
               </ol>
             </div><!-- /.col -->
           </div><!-- /.row -->
@@ -176,62 +160,48 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <div class="container-fluid">
           <div class="row">
             <div class="col-12">
-              <div class="card">
+              <!-- form header -->
+              <div class="card card-primary">
                 <div class="card-header">
-                  <a href="berita_add_ui.php">
-                    <button type="button" class="btn btn-primary"><i class="fa fa-add"></i>
-                      Tambah
-                    </button>
-                  </a>
+                  <h3 class="card-title">Form Edit Sejarah</h3>
                 </div>
-                <!-- /.card-header -->
+              </div>
+              <!-- /.form-header -->
+              <!-- form start -->
+              <?php
+              $result = mysqli_query($dbcon, "SELECT * FROM t_content  WHERE Nomor = 1");
+              $result = mysqli_fetch_array($result);
+              ?>
+              <form action="action_edit_sejarah.php" method="POST" enctype="multipart/form-data">
                 <div class="card-body">
-                  <table id="example1" class="table table-bordered table-striped">
-                    <thead>
-                      <tr>
-                        <th>No</th>
-                        <th>Tanggal</th>
-                        <th>Kategori</th>
-                        <th>Judul</th>
-                        <th>Gambar</th>
-                        <th>Action</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <?php
-                      $result = mysqli_query($dbcon, "SELECT * FROM t_berita ORDER BY tgl DESC");
-                      $no = 1;
-                      foreach ($result as $result) { ?>
-                        <tr>
-                          <td><?= $no++ ?></td>
-                          <td><?= $result['tgl'] ?></td>
-                          <td><?= $result['kategori'] ?></td>
-                          <td><?= $result['judul'] ?></td>
-                          <td><img style="max-height:70px !important;" src="../assets/<?= $result['gambar_berita'] ?>" alt=""></td>
-                          <td>
-                            <div class="btn-group btn-group-sm">
-                              <a href="berita_edit_ui.php?id_berita=<?php echo $result['id_berita'] ?>" class="btn btn-warning"><i class="fas fa-edit"></i></a>
-                              <a onclick="return confirm('Anda Yakin?')" href="action_delete_berita.php?id_berita=<?php echo $result['id_berita'] ?>" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                  <div class="form-group">
+                    <label>Judul</label>
+                    <input type="username" class="form-control" id="Judul" name="Judul" value="<?= $result['Judul']; ?>">
+                  </div>
+                  <div class="form-group">
+                                <label >Deskripsi</label>
+                                <textarea class="form-control" rows="3" id="Deskripsi" name="Deskripsi"><?= $result['Deskripsi']; ?>
+                                </textarea>
                             </div>
-                          </td>
-                        </tr>
-                      <?php } ?>
-                    </tbody>
-                    <tfoot>
-                      <tr>
-                        <th>No</th>
-                        <th>Tanggal</th>
-                        <th>Kategori</th>
-                        <th>Judul</th>
-                        <th>Gambar</th>
-                        <th>Action</th>
-                      </tr>
-                    </tfoot>
-                  </table>
+                  <div class="form-group">
+                    <label class="d-block">Gambar</label>
+                    <img src="../assets/<?= $result["Gambar"]; ?>" alt="img">
+                    <div class="custom-file mt-4">
+                      <input type="file" class="custom-file-input" id="customFile" name="Gambar">
+                      <label class="custom-file-label" for="customFile">Choose file</label>
+                    </div>
+                  </div>
                 </div>
                 <!-- /.card-body -->
-              </div>
-              <!-- /.card -->
+
+                <div class="card-footer">
+                  <input type="hidden" name="Nomor" value="<?php echo $result['Nomor']; ?>">
+                  <input type="hidden" name="GambarLama" value="<?= $result["Gambar"]; ?>">
+                  <button type="submit" class="btn btn-primary">Ubah</button>
+                </div>
+                <!-- /.card-footer -->
+              </form>
+              <!-- /.form -->
             </div>
             <!-- /.col -->
           </div>
@@ -273,6 +243,21 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
   <!-- AdminLTE App -->
   <script src="dist/js/adminlte.min.js"></script>
+
+  <script src="plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+  <script>
+    $(function() {
+      bsCustomFileInput.init();
+    });
+  </script>
+
+  <!-- script manual -->
+  <script>
+    $('.date-own').datepicker({
+      minViewMode: 2,
+      format: 'yyyy'
+    });
+  </script>
 </body>
 
 </html>
