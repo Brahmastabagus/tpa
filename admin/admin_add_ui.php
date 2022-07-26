@@ -72,6 +72,22 @@ if (!isset($_SESSION['islogin'])) {
             <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
             <li class="nav-item">
+              <a href="header.php" class="nav-link">
+                <i class="nav-icon fas fa-heading"></i>
+                <p>
+                  Header
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="sejarah.php" class="nav-link">
+                <i class="nav-icon fas fa-book-open"></i>
+                <p>
+                  Konten
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
               <a href="produk.php" class="nav-link">
                 <i class="nav-icon fas fa-dolly-flatbed"></i>
                 <p>

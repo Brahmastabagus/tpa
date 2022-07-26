@@ -72,8 +72,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
                         <li class="nav-item">
+                            <a href="header.php" class="nav-link">
+                                <i class="nav-icon fas fa-heading"></i>
+                                <p>
+                                    Header
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="sejarah.php" class="nav-link active">
-                                <i class="fas fa-monument"></i>
+                                <i class="nav-icon fas fa-book-open"></i>
                                 <p>
                                     Konten
                                 </p>
@@ -168,49 +176,49 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <div class="row">
                         <div class="col-12">
                             <div>
-                            <table id="example1" class="table table-bordered table-striped">
-                                        <thead>
+                                <table id="example1" class="table table-bordered table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>No.</th>
+                                            <th>Judul</th>
+                                            <th>Deskripsi</th>
+                                            <th>Gambar</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                        $result = mysqli_query($dbcon, "select * from t_content");
+                                        $no = 1;
+                                        foreach ($result as $result) { ?>
                                             <tr>
-                                                <th>No.</th>
-                                                <th>Judul</th>
-                                                <th>Deskripsi</th>
-                                                <th>Gambar</th>
-                                                <th>Action</th>
+                                                <td><?= $no++ ?></td>
+                                                <td><?= $result['Judul'] ?></td>
+                                                <td><?= $result['Deskripsi'] ?></td>
+                                                <td style="max-width: 400px"><?= $result['Gambar'] ?></td>
+                                                <td>
+                                                    <div class="btn-group btn-group-sm">
+                                                        <a href="sejarah_edit_ui.php?id_sejarah=1" class="btn btn-warning me-2"><i class="fas fa-edit"></i></a>
+                                                    </div>
+                                                </td>
                                             </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php
-                                            $result = mysqli_query($dbcon, "select * from t_content");
-                                            $no = 1;
-                                            foreach ($result as $result) { ?>
-                                                <tr>
-                                                    <td><?= $no++ ?></td>
-                                                    <td><?= $result['Judul'] ?></td>
-                                                    <td><?= $result['Deskripsi'] ?></td>
-                                                    <td style="max-width: 400px"><?= $result['Gambar'] ?></td>
-                                                    <td>
-                                                        <div class="btn-group btn-group-sm">
-                                                            <a href="sejarah_edit_ui.php?id_sejarah=1" class="btn btn-warning me-2"><i class="fas fa-edit"></i></a>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <?php } ?>
-                                        </tbody>
-                                        <tfoot>
-                                            <tr>
-                                                <th>No.</th>
-                                                <th>Judul</th>
-                                                <th>Deskripsi</th>
-                                                <th>Action</th>
-                                            </tr>
-                                        </tfoot>
-                                    </table>               
+                                        <?php } ?>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <th>No.</th>
+                                            <th>Judul</th>
+                                            <th>Deskripsi</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                            <!-- /.col -->
                         </div>
-                        <!-- /.col -->
+                        <!-- /.row -->
                     </div>
-                    <!-- /.row -->
-                </div>
-                <!-- /.container-fluid -->
+                    <!-- /.container-fluid -->
             </section>
             <!-- /.content -->
         </div>

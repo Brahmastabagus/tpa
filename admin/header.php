@@ -72,7 +72,22 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-
+            <li class="nav-item">
+              <a href="header.php" class="nav-link active">
+                <i class="nav-icon fas fa-heading"></i>
+                <p>
+                  Header
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="sejarah.php" class="nav-link">
+                <i class="nav-icon fas fa-book-open"></i>
+                <p>
+                  Konten
+                </p>
+              </a>
+            </li>
             <li class="nav-item">
               <a href="produk.php" class="nav-link">
                 <i class="nav-icon fas fa-dolly-flatbed"></i>
@@ -123,21 +138,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </li>
             </li>
             <li class="nav-item">
-              <a href="header.php" class="nav-link active">
-              <i class="fas fa-heading"></i>
-                <p>
-                  header
-                </p>
-              </a>
-            </li>
-            <li class="nav-item">
               <a href="logout.php" class="nav-link">
                 <i class="nav-icon fas fa-sign-out-alt"></i>
                 <p>
                   Logout
-                  </p>
+                </p>
               </a>
-            
           </ul>
         </nav>
         <!-- /.sidebar-menu -->
@@ -145,9 +151,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <!-- /.sidebar -->
     </aside>
 
-    
-     <!-- Content Wrapper. Contains page content -->
-     <div class="content-wrapper">
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
       <!-- Content Header (Page header) -->
       <div class="content-header">
         <div class="container-fluid">
@@ -173,7 +179,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <div class="col-12">
               <div class="card">
                 <div class="card-header">
-                  
+
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
@@ -200,8 +206,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                           <td><?= $result['vidio'] ?></td>
                           <td>
                             <div class="btn-group btn-group-sm">
-                            <a href="header_edit_ui.php?id_header=<?php echo $result['id_header'] ?>" class="btn btn-warning"><i class="fas fa-edit"></i></a>
-                              
+                              <a href="header_edit_ui.php?id_header=<?php echo $result['id_header'] ?>" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+
                             </div>
                           </td>
                         </tr>
@@ -251,7 +257,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <!-- Default to the left -->
       <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
     </footer>
-  </div>
   <!-- ./wrapper -->
 
   <!-- REQUIRED SCRIPTS -->
