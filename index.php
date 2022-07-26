@@ -74,12 +74,16 @@ include "admin/connect.php";
         <div class="container">
             <div class="row">
                 <div class="col">
+                <?php
+                $header_result = mysqli_query($dbcon, "SELECT * FROM t_header limit 1 ");
+               $header = mysqli_fetch_array($header_result);
+               ?>
                     <div class="content">
                         <div class="text-center">
-                            <h1>The Good Beverage Company PT. Sinar Sosro</h1>
-                            <p>Sempurnakan harimu dengan ceria dan bahagia bersama Prim-A dari PT Sinar Sosro Air mineral pilihan dari sumber mata air pilihan.</p>
+                            <h1> <?php echo $header['judul']?> </h1>
+                            <p> <?php echo $header['keterangan']?> </p>
                         </div>
-                        <iframe width="100%" height="550" src="https://www.youtube.com/embed/yCbG9eqAAIE?controls=0">
+                        <iframe width="100%" height="550" src="<?php echo $header['vidio'] ?> ">
                         </iframe>
                     </div>
                 </div>

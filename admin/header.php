@@ -72,8 +72,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
+
             <li class="nav-item">
-              <a href="produk.php" class="nav-link active">
+              <a href="produk.php" class="nav-link">
                 <i class="nav-icon fas fa-dolly-flatbed"></i>
                 <p>
                   Produk
@@ -117,30 +118,26 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <i class="nav-icon fas fa-user-tie"></i>
                 <p>
                   Admin
-
-
                 </p>
               </a>
             </li>
+            </li>
             <li class="nav-item">
-              <a href="header.php" class="nav-link">
+              <a href="header.php" class="nav-link active">
               <i class="fas fa-heading"></i>
                 <p>
                   header
-
                 </p>
               </a>
             </li>
-
             <li class="nav-item">
               <a href="logout.php" class="nav-link">
                 <i class="nav-icon fas fa-sign-out-alt"></i>
                 <p>
                   Logout
-
-                </p>
+                  </p>
               </a>
-            </li>
+            
           </ul>
         </nav>
         <!-- /.sidebar-menu -->
@@ -148,19 +145,20 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <!-- /.sidebar -->
     </aside>
 
-    <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
+    
+     <!-- Content Wrapper. Contains page content -->
+     <div class="content-wrapper">
       <!-- Content Header (Page header) -->
       <div class="content-header">
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1 class="m-0">Data Produk</h1>
+              <h1 class="m-0">Header</h1>
             </div><!-- /.col -->
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item active">Produk</li>
+                <li class="breadcrumb-item active">Header</li>
               </ol>
             </div><!-- /.col -->
           </div><!-- /.row -->
@@ -175,11 +173,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <div class="col-12">
               <div class="card">
                 <div class="card-header">
-                  <a href="produk_add_ui.php">
-                    <button type="button" class="btn btn-primary"><i class="fa fa-add"></i>
-                      Tambah
-                    </button>
-                  </a>
+                  
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
@@ -187,26 +181,27 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <thead>
                       <tr>
                         <th>No</th>
-                        <th>Nama</th>
-                        <th>Deskripsi</th>
-                        <th>Gambar</th>
+                        <th>Judul</th>
+                        <th>keterangan</th>
+                        <th>vidio</th>
                         <th>Action</th>
                       </tr>
                     </thead>
                     <tbody>
+
                       <?php
-                      $result = mysqli_query($dbcon, "select * from t_produk");
+                      $result = mysqli_query($dbcon, "SELECT * FROM t_header");
                       $no = 1;
                       foreach ($result as $result) { ?>
                         <tr>
                           <td><?= $no++ ?></td>
-                          <td><?= $result['nama'] ?></td>
-                          <td><?= $result['deskripsi'] ?></td>
-                          <td><img style="max-height:70px !important;" src="../assets/<?= $result['gambar'] ?>" alt=""></td>
+                          <td><?= $result['judul'] ?></td>
+                          <td><?= $result['keterangan'] ?></td>
+                          <td><?= $result['vidio'] ?></td>
                           <td>
                             <div class="btn-group btn-group-sm">
-                              <a href="produk_edit_ui.php?id_produk=<?php echo $result['id_produk'] ?>" class="btn btn-warning"><i class="fas fa-edit"></i></a>
-                              <a onclick="return confirm('Anda Yakin?')" href="action_delete_produk.php?id_produk=<?php echo $result['id_produk'] ?>" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                            <a href="header_edit_ui.php?id_header=<?php echo $result['id_header'] ?>" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+                              
                             </div>
                           </td>
                         </tr>
@@ -215,9 +210,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <tfoot>
                       <tr>
                         <th>No</th>
-                        <th>Nama</th>
-                        <th>Deskripsi</th>
-                        <th>Gambar</th>
+                        <th>Judul</th>
+                        <th>keterangan</th>
+                        <th>vidio</th>
                         <th>Action</th>
                       </tr>
                     </tfoot>

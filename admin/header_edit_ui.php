@@ -56,7 +56,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex" method="POST">
           <?php
-          $sql_nama = mysqli_query($dbcon, "select nama from t_admin where id_admin = '$_SESSION[id_admin]'");
+          $sql_nama = mysqli_query($dbcon, "select nama from t_admin where id_admin = '$_SESSION[islogin]'");
           $result = mysqli_fetch_array($sql_nama);
           ?>
           <div class="image">
@@ -73,7 +73,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
             <li class="nav-item">
-              <a href="produk.php" class="nav-link active">
+              <a href="produk.php" class="nav-link">
                 <i class="nav-icon fas fa-dolly-flatbed"></i>
                 <p>
                   Produk
@@ -81,7 +81,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </a>
             </li>
             <li class="nav-item">
-              <a href="berita.php" class="nav-link">
+              <a href="berita.php" class="nav-link active">
                 <i class="nav-icon fas fa-newspaper"></i>
                 <p>
                   Berita
@@ -117,30 +117,28 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <i class="nav-icon fas fa-user-tie"></i>
                 <p>
                   Admin
-
-
                 </p>
+              </a>
+            </li>
+            </p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="header.php" class="nav-link">
+              <a href="header.php" class="nav-link active">
               <i class="fas fa-heading"></i>
                 <p>
                   header
-
-                </p>
-              </a>
-            </li>
 
             <li class="nav-item">
               <a href="logout.php" class="nav-link">
                 <i class="nav-icon fas fa-sign-out-alt"></i>
                 <p>
                   Logout
-
                 </p>
               </a>
             </li>
+
+
           </ul>
         </nav>
         <!-- /.sidebar-menu -->
@@ -155,12 +153,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1 class="m-0">Data Produk</h1>
+              <h1 class="m-0">Data Header</h1>
             </div><!-- /.col -->
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item active">Produk</li>
+                <li class="breadcrumb-item"><a href="header.php">header</a></li>
+                <li class="breadcrumb-item active">Edit Header</li>
               </ol>
             </div><!-- /.col -->
           </div><!-- /.row -->
@@ -173,59 +172,43 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <div class="container-fluid">
           <div class="row">
             <div class="col-12">
-              <div class="card">
+              <!-- form header -->
+              <div class="card card-primary">
                 <div class="card-header">
-                  <a href="produk_add_ui.php">
-                    <button type="button" class="btn btn-primary"><i class="fa fa-add"></i>
-                      Tambah
-                    </button>
-                  </a>
+                  <h3 class="card-title">Form Ubah Header</h3>
                 </div>
-                <!-- /.card-header -->
-                <div class="card-body">
-                  <table id="example1" class="table table-bordered table-striped">
-                    <thead>
-                      <tr>
-                        <th>No</th>
-                        <th>Nama</th>
-                        <th>Deskripsi</th>
-                        <th>Gambar</th>
-                        <th>Action</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <?php
-                      $result = mysqli_query($dbcon, "select * from t_produk");
-                      $no = 1;
-                      foreach ($result as $result) { ?>
-                        <tr>
-                          <td><?= $no++ ?></td>
-                          <td><?= $result['nama'] ?></td>
-                          <td><?= $result['deskripsi'] ?></td>
-                          <td><img style="max-height:70px !important;" src="../assets/<?= $result['gambar'] ?>" alt=""></td>
-                          <td>
-                            <div class="btn-group btn-group-sm">
-                              <a href="produk_edit_ui.php?id_produk=<?php echo $result['id_produk'] ?>" class="btn btn-warning"><i class="fas fa-edit"></i></a>
-                              <a onclick="return confirm('Anda Yakin?')" href="action_delete_produk.php?id_produk=<?php echo $result['id_produk'] ?>" class="btn btn-danger"><i class="fas fa-trash"></i></a>
-                            </div>
-                          </td>
-                        </tr>
-                      <?php } ?>
-                    </tbody>
-                    <tfoot>
-                      <tr>
-                        <th>No</th>
-                        <th>Nama</th>
-                        <th>Deskripsi</th>
-                        <th>Gambar</th>
-                        <th>Action</th>
-                      </tr>
-                    </tfoot>
-                  </table>
-                </div>
-                <!-- /.card-body -->
+                <!-- /.form-header -->
+                <!-- form start -->
+                <?php
+                $result = mysqli_query($dbcon, "select * from t_header where id_header = '$_GET[id_header]'");
+                $result = mysqli_fetch_array($result);
+                ?>
+                <form action="action_edit_header.php?id_header=<?= $result['id_header'] ?> "method="POST" enctype="multipart/form-data">
+                  <div class="card-body">
+                    <div class="form-group">
+                      <label>judul</label>
+                      <input type="username" class="form-control" id="judul" name="judul" value="<?= $result['judul']; ?>">
+                    </div>
+                    <div class="form-group">
+                      <label>keterangan</label>
+                      <textarea class="form-control" rows="3" id="keterangan" name="keterangan"><?= $result['keterangan']; ?></textarea>
+                    </div>
+                    <div class="form-group">
+                      <label>vidio</label>
+                      <input type="text" class="form-control" id="vidio" name="vidio" value="<?= $result['vidio']; ?>">
+                    </div>
+                    </div>
+                  </div>
+
+                  <!-- /.card-body -->
+                  <div class="card-footer">
+                    <input type="hidden" name="id_header" value="<?php echo $result['id_header']; ?>">
+                    <button type="submit" class="btn btn-primary">Ubah</button>
+                  </div>
+                  <!-- /.card footer -->
+                </form>
               </div>
-              <!-- /.card -->
+              <!-- /.form -->
             </div>
             <!-- /.col -->
           </div>
@@ -267,6 +250,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
   <!-- AdminLTE App -->
   <script src="dist/js/adminlte.min.js"></script>
+  <script src="plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+  <script>
+    $(function() {
+      bsCustomFileInput.init();
+    });
+  </script>
 </body>
 
 </html>

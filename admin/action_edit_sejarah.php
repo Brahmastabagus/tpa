@@ -70,8 +70,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                        <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
+                        <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
                         <li class="nav-item">
                             <a href="produk.php" class="nav-link">
                                 <i class="nav-icon fas fa-dolly-flatbed"></i>
@@ -121,15 +120,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </a>
                         </li>
                         <li class="nav-item">
-              <a href="header.php" class="nav-link">
-              <i class="fas fa-heading"></i>
-                <p>
-                  header
-
-                </p>
-              </a>
-            </li>
-                        <li class="nav-item">
                             <a href="logout.php" class="nav-link">
                                 <i class="nav-icon fas fa-sign-out-alt"></i>
                                 <p>
@@ -151,7 +141,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Data Sosial Media</h1>
+                            <h1 class="m-0">Data Sejarah</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
@@ -168,57 +158,41 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <section class="content">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-12">
-                            <div class="card">
-                                <div class="card-header">
-                                    <a href="sosial-media_add_ui.php">
-                                        <button type="button" class="btn btn-primary"><i class="fa fa-add"></i>
-                                            Tambah
-                                        </button>
-                                    </a>
-                                </div>
-                                <!-- /.card-header -->
-                                <div class="card-body">
-                                    <table id="example1" class="table table-bordered table-striped">
+                        <div class="col-6">
+                            <div>
+                            <table id="example1" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
-                                                <th>No</th>
-                                                <th>Nama</th>
-                                                <th>Link</th>
+                                                <th>No.</th>
+                                                <th>Deskripsi</th>
+                                                <th>Gambar</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php
-                                            $results = mysqli_query($dbcon, "select * from `t_sosial-media`");
-                                            $no = 1;
-                                            foreach ($results as $result) : ?>
+                                            $results = mysqli_query($dbcon, "select * from `t_sejarah`"); ?>
                                                 <tr>
-                                                    <td><?= $no++ ?></td>
-                                                    <td><?= $result['nama'] ?></td>
-                                                    <td><?= $result['link'] ?></td>
+                                                    <td>1</td>
+                                                    <td><?= $results['Judul'] ?></td>
+                                                    <td><?= $results['Deskripsi'] ?></td>
                                                     <td>
                                                         <div class="btn-group btn-group-sm">
-                                                            <a href="sosial-media_edit_ui.php?id_sosial_media=<?php echo $result['id_sosial_media'] ?>" class="btn btn-warning me-2"><i class="fas fa-edit"></i></a>
-                                                            <a onclick="return confirm('Anda Yakin?')" href="action_delete_sosial-media.php?id_sosial_media=<?php echo $result['id_sosial_media'] ?>" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                                                            <a href="sejarah_edit_ui.php?id_sosial_media=<?php echo $result['Nomor'] ?>" class="btn btn-warning me-2"><i class="fas fa-edit"></i></a>
+                                                            <a onclick="return confirm('Anda Yakin?')" href="action_delete_sejarah-media.php?id_sosial_media=<?php echo $result['Nomor'] ?>" class="btn btn-danger"><i class="fas fa-trash"></i></a>
                                                         </div>
                                                     </td>
                                                 </tr>
-                                            <?php endforeach; ?>
                                         </tbody>
                                         <tfoot>
                                             <tr>
-                                                <th>No</th>
-                                                <th>Nama</th>
-                                                <th>Link</th>
+                                                <th>No.</th>
+                                                <th>Judul</th>
+                                                <th>Deskripsi</th>
                                                 <th>Action</th>
                                             </tr>
                                         </tfoot>
-                                    </table>
-                                </div>
-                                <!-- /.card-body -->
-                            </div>
-                            <!-- /.card -->
+                                    </table>               
                         </div>
                         <!-- /.col -->
                     </div>

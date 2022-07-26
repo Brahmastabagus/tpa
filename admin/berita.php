@@ -87,6 +87,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   Berita
                 </p>
               </a>
+
             </li>
             <li class="nav-item">
               <a href="penghargaan.php" class="nav-link">
@@ -117,6 +118,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <i class="nav-icon fas fa-user-tie"></i>
                 <p>
                   Admin
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="header.php" class="nav-link">
+              <i class="fas fa-heading"></i>
+                <p>
+                  header
                 </p>
               </a>
             </li>
