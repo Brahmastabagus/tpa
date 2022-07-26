@@ -126,6 +126,16 @@ if (!isset($_SESSION['islogin'])) {
                 </p>
               </a>
             </li>
+
+            <li class="nav-item">
+              <a href="header.php" class="nav-link">
+              <i class="fas fa-heading"></i>
+                <p>
+                  header
+
+                </p>
+              </a>
+            </li>
             <li class="nav-item">
               <a href="logout.php" class="nav-link">
                 <i class="nav-icon fas fa-sign-out-alt"></i>

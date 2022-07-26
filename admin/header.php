@@ -70,15 +70,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- Sidebar Menu -->
         <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
-            <li class="nav-item">
-              <a href="sejarah.php" class="nav-link">
-                <i class="fas fa-monument"></i>
-                <p>
-                  Konten
-                </p>
-              </a>
-            </li>
+            <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+
             <li class="nav-item">
               <a href="produk.php" class="nav-link">
                 <i class="nav-icon fas fa-dolly-flatbed"></i>
@@ -88,13 +82,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </a>
             </li>
             <li class="nav-item">
-              <a href="berita.php" class="nav-link active">
+              <a href="berita.php" class="nav-link">
                 <i class="nav-icon fas fa-newspaper"></i>
                 <p>
                   Berita
                 </p>
               </a>
-
             </li>
             <li class="nav-item">
               <a href="penghargaan.php" class="nav-link">
@@ -128,8 +121,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </p>
               </a>
             </li>
+            </li>
             <li class="nav-item">
-              <a href="header.php" class="nav-link">
+              <a href="header.php" class="nav-link active">
               <i class="fas fa-heading"></i>
                 <p>
                   header
@@ -141,9 +135,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <i class="nav-icon fas fa-sign-out-alt"></i>
                 <p>
                   Logout
-                </p>
+                  </p>
               </a>
-            </li>
+            
           </ul>
         </nav>
         <!-- /.sidebar-menu -->
@@ -151,19 +145,20 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <!-- /.sidebar -->
     </aside>
 
-    <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
+    
+     <!-- Content Wrapper. Contains page content -->
+     <div class="content-wrapper">
       <!-- Content Header (Page header) -->
       <div class="content-header">
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1 class="m-0">Berita</h1>
+              <h1 class="m-0">Header</h1>
             </div><!-- /.col -->
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item active">Berita</li>
+                <li class="breadcrumb-item active">Header</li>
               </ol>
             </div><!-- /.col -->
           </div><!-- /.row -->
@@ -178,11 +173,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <div class="col-12">
               <div class="card">
                 <div class="card-header">
-                  <a href="berita_add_ui.php">
-                    <button type="button" class="btn btn-primary"><i class="fa fa-add"></i>
-                      Tambah
-                    </button>
-                  </a>
+                  
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
@@ -190,28 +181,27 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <thead>
                       <tr>
                         <th>No</th>
-                        <th>Tanggal</th>
-                        <th>Kategori</th>
                         <th>Judul</th>
-                        <th>Gambar</th>
+                        <th>keterangan</th>
+                        <th>vidio</th>
                         <th>Action</th>
                       </tr>
                     </thead>
                     <tbody>
+
                       <?php
-                      $result = mysqli_query($dbcon, "SELECT * FROM t_berita ORDER BY tgl DESC");
+                      $result = mysqli_query($dbcon, "SELECT * FROM t_header");
                       $no = 1;
                       foreach ($result as $result) { ?>
                         <tr>
                           <td><?= $no++ ?></td>
-                          <td><?= $result['tgl'] ?></td>
-                          <td><?= $result['kategori'] ?></td>
                           <td><?= $result['judul'] ?></td>
-                          <td><img style="max-height:70px !important;" src="../assets/<?= $result['gambar_berita'] ?>" alt=""></td>
+                          <td><?= $result['keterangan'] ?></td>
+                          <td><?= $result['vidio'] ?></td>
                           <td>
                             <div class="btn-group btn-group-sm">
-                              <a href="berita_edit_ui.php?id_berita=<?php echo $result['id_berita'] ?>" class="btn btn-warning"><i class="fas fa-edit"></i></a>
-                              <a onclick="return confirm('Anda Yakin?')" href="action_delete_berita.php?id_berita=<?php echo $result['id_berita'] ?>" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                            <a href="header_edit_ui.php?id_header=<?php echo $result['id_header'] ?>" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+                              
                             </div>
                           </td>
                         </tr>
@@ -220,10 +210,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <tfoot>
                       <tr>
                         <th>No</th>
-                        <th>Tanggal</th>
-                        <th>Kategori</th>
                         <th>Judul</th>
-                        <th>Gambar</th>
+                        <th>keterangan</th>
+                        <th>vidio</th>
                         <th>Action</th>
                       </tr>
                     </tfoot>
